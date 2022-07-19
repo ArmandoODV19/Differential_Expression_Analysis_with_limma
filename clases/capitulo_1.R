@@ -122,4 +122,10 @@ colSums(design)
 
 table(pData(eset)[,"Disease"])
 
-# se ajustan los coeficientes
+# se ajustan los coeficientes al modelo con lmFit()
+
+fit <- lmFit(eset, design)
+
+# calcula tstatistics con la funcion eBayes()
+
+fit <- eBayes(fit)
