@@ -61,3 +61,24 @@ design <- model.matrix(~0 + LeukemiaType,
 head(design, 3)
 
 colSums(design)
+
+# make contrast
+
+cm <- makeContrasts(AMLvALL = LeukemiaTypeAML - LeukemiaTypeALL,
+                    CMLvALL= LeukemiaTypeCML - LeukemiaTypeALL,
+                    CMLvAML= LeukemiaTypeCML - LeukemiaTypeAML,
+                    CLLvALL = LeukemiaTypeCLL - LeukemiaTypeALL,
+                    NOLvALL = LeukemiaTypeNoL - LeukemiaTypeALL,
+                    levels = design)
+cm
+
+# con design y contrast se puede correr the lima pipeline
+
+fit <- lmFit(leukemiasEset, design)
+
+fit2 <- contrasts.fit(fit, contrasts = cm)
+
+fit2 <- eBayes(fit2)
+
+results <- decideTests(fit2)
+summary(results)
