@@ -59,3 +59,17 @@ boxplot(x[1,]~p[,"Disease"], main = f[1, "symbol"])
 
 # checando el segundo gen
 boxplot(x[2,]~p[,"Disease"], main = f[2, "symbol"])
+
+
+# object oriented programming
+# para esto se necesita la paqueteria Biobase
+
+BiocManager::install("Biobase")
+
+# generando un ExpresionSet object
+
+library(Biobase)
+
+eset <- ExpressionSet(assayData = x,
+                      phenoData = AnnotatedDataFrame(p),
+                      featureData = AnnotatedDataFrame(f))
