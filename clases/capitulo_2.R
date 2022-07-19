@@ -88,3 +88,21 @@ summary(results)
 # a balanced factorial design includes samples that experience each
 # each combination of experimental variables
 
+dim(eset)
+
+table(pData(eset)[,c("SampleID", "Disease")])
+
+# se creara un coeficiente para los cada grupo
+# se combinan las variables sampleID y disease en una sola variable
+group <- with(pData(eset),
+              paste(SampleID, Disease, sep = "."))
+group <- factor(group)
+
+# se crea un modelo sin intercepcion
+design <- model.matrix(~0 + group)
+
+# se asigna el nombre de las columnas acorde con los nombres de
+# los factores
+colnames(design) <- levels(group)
+
+head(design, 3) # visualizando los coeficientes para cada grupo
