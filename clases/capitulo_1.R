@@ -134,3 +134,5 @@ fit <- eBayes(fit)
 
 results <- decideTests(fit[,"Diseasestable"])
 summary(results)
+# con estos resultados se observa 2 genes reprimidos, 2 sobre expresados
+# y 12621 sin cambios
