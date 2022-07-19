@@ -46,3 +46,16 @@ boxplot(<gene expression> ~ <phenotype>, main ="<tittle>")
 # se selecciona la columna "er" de la matriz de fenotipo
 
 boxplot(x[1,]~p[,"er"], main = f[1, "symbol"])
+
+# extrayendo las matrices del objeto leukemia
+
+x <- leukemia@assayData[["exprs"]]
+p <- leukemia@phenoData@data
+f <- leukemia@featureData@data
+
+# haciendo el boxplot del primer gen
+
+boxplot(x[1,]~p[,"Disease"], main = f[1, "symbol"])
+
+# checando el segundo gen
+boxplot(x[2,]~p[,"Disease"], main = f[2, "symbol"])
