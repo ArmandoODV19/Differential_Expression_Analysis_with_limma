@@ -106,3 +106,5 @@ design <- model.matrix(~0 + group)
 colnames(design) <- levels(group)
 
 head(design, 3) # visualizando los coeficientes para cada grupo
+
+colSums(design)
