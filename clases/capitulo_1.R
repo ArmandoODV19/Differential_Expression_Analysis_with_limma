@@ -122,4 +122,4 @@ colSums(design)
 
 table(pData(eset)[,"Disease"])
 
-#
+# se ajustan los coeficientes
