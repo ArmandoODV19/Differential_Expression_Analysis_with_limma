@@ -73,3 +73,26 @@ library(Biobase)
 eset <- ExpressionSet(assayData = x,
                       phenoData = AnnotatedDataFrame(p),
                       featureData = AnnotatedDataFrame(f))
+
+dim(eset)
+# tenemos un expression object de 12625 caracteristicas y
+# 22 muestras
+
+# se puede extraer cada elemento de la matriz de forma inversa
+
+# extraer matriz de expresion
+x <- exprs(eset)
+
+# data de caracteristicas
+f <- fData(eset)
+
+# phenotype data
+p <- pData(eset)
+
+# del expresion set object se puede extraer un elemento en especifico
+# extraer el objeto 1000 y las primeras 10 columnas
+eset_sub <- eset[1000, 1:10]
+
+# de esta forma se puede graficar este gen en un boxplot
+boxplot(exprs(eset)[1,]~pData(eset)[,"Disease"],
+        main = fData(eset)[1,"symbol"])
