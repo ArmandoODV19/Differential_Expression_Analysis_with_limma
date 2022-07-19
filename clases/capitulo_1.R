@@ -94,5 +94,5 @@ p <- pData(eset)
 eset_sub <- eset[1000, 1:10]
 
 # de esta forma se puede graficar este gen en un boxplot
-boxplot(exprs(eset)[1,]~pData(eset)[,"Disease"],
-        main = fData(eset)[1,"symbol"])
+boxplot(exprs(eset)[1000,]~pData(eset)[,"Disease"],
+        main = fData(eset)[1000,"symbol"])
