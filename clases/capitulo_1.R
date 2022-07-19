@@ -96,3 +96,15 @@ eset_sub <- eset[1000, 1:10]
 # de esta forma se puede graficar este gen en un boxplot
 boxplot(exprs(eset)[1000,]~pData(eset)[,"Disease"],
         main = fData(eset)[1000,"symbol"])
+
+### instalando la paqueteria limma
+
+BiocManager::install("limma")
+
+library(limma)
+
+# limma utiliza un modelo lineal para evaluar la expresion diferencial
+# a partir de la funcion model.matrix()
+model.matrix(~<explanatory>, data = <dataframe>)
+
+design <- model.matrix(~Disease, data = pData(eset))
