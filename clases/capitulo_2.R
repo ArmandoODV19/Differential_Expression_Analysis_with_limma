@@ -55,8 +55,8 @@ table(pData(leukemiasEset)[,"LeukemiaType"])
 # incluye 0 para remover la intercepcion y el nombre de la columna
 # que contiene el nombre de las muestras
 
-design <- model.matrix(~0 + LeukemiaType,
-                       data = pData(leukemiasEset))
+design <- model.matrix(~0 + LeukemiaType, # nombre columna
+                       data = pData(leukemiasEset)) # data set
 
 head(design, 3)
 
