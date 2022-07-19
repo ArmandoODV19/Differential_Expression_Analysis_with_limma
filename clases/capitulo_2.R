@@ -21,5 +21,15 @@ cm
 # resultado del ajuste del modelo
 
 fit <- lmFit(eset, design)
+head(fit$coefficients, 3)
 
 fit2 <- contrasts.fit(fit, contrasts = cm)
+head(fit2$coefficients, 3)
+
+# se calcula t-statistics con la funcion eBayes()
+
+fit2 <- eBayes(fit2)
+
+# se cuenta el numero de genes expresados diferencialmente
+results <- decideTests(fit2)
+summary(results)
