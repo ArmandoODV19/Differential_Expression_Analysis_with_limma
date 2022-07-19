@@ -108,3 +108,18 @@ library(limma)
 model.matrix(~<explanatory>, data = <dataframe>)
 
 design <- model.matrix(~Disease, data = pData(eset))
+
+# cada columna de la matriz design corresponde a un
+# coeficiente en el modelo lineal
+
+head(design)
+
+# para saber si los datos concuerdan se utiliza la funcion colsums()
+# para la matriz y table para pData. La segunda columna de ambos df
+# debe coincidir
+
+colSums(design)
+
+table(pData(eset)[,"Disease"])
+
+#
