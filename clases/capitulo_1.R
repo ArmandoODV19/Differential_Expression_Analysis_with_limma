@@ -129,3 +129,8 @@ fit <- lmFit(eset, design)
 # calcula tstatistics con la funcion eBayes()
 
 fit <- eBayes(fit)
+
+# cuenta el numero de genes con expresion diferencial entre los grupos
+
+results <- decideTests(fit[,"Diseasestable"])
+summary(results)
