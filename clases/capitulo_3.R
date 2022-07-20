@@ -73,4 +73,4 @@ exprs(eset) <- removeBatchEffect(eset,
                                  batch = pData(eset)[,"batch"],
                                  covariates = pData(eset)[,"rin"])
 
-# visualizacion de resultados
+### visualizacion de resultados
