@@ -49,3 +49,28 @@ abline(v = 1.5)
 keep <- rowMeans(exprs(eset)) > 1.5
 eset <- eset[keep,]
 plotDensities(eset, legend = FALSE)
+
+### batch effects
+
+# estos son artefactos que se generan a partir del hecho de que cada
+#lote en el experimento es levemente diferente
+# para eliminarlos es critico balancear las variables de interes en cada
+# lote
+
+# para investigar batch effects se utiliza reduccion de dimensiones
+# como PCA y multidimensional scaling
+# con la funcion plotMDS() genera multidimensional scaling
+
+plotMDS(eset, labels = pData(eset)[,"Disease"], # nombre de columna
+        gene.selection = "common") # aqui va common o pairwise
+
+# si las variables se separan por PC2 indica un batch effect
+
+# para remover batches se utiliza la funcion
+# removeBatchEffect()
+
+exprs(eset) <- removeBatchEffect(eset,
+                                 batch = pData(eset)[,"batch"],
+                                 covariates = pData(eset)[,"rin"])
+
+# visualizacion de resultados
