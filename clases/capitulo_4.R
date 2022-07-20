@@ -12,5 +12,6 @@ x <- dox@assayData[["exprs"]]
 p <- dox@phenoData@data
 f <- dox@featureData@data
 
-boxplot(x["A_51_P227777",]~p[,"treatment"],
+# para saber si hay sobre expresion
+boxplot(x["A_51_P227777",]~p[,"genotype"],
         main = f["A_51_P227777", "symbol"])
