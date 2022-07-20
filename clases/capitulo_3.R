@@ -110,4 +110,14 @@ summary(results)
 # el experimento estan sobrerepresentados mas de lo esperado
 # por casualidad que cualquier conjunto conocido de genes
 
+# para el enriquecimiento se necesita el ID del gen
+# de la columna entrez
 
+head(fit2$genes, 3)
+
+entrez <- fit2$genes[,"entrez"]
+
+# el enriquecimiento con kegg se realiza con la funcion kegga()
+
+enrich_kegg <- kegga(fit2, geneid = entrez, species = "Hs")
+# la abreviacion de la especie "Hs" indica hommo sapiens
