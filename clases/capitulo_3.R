@@ -74,3 +74,15 @@ exprs(eset) <- removeBatchEffect(eset,
                                  covariates = pData(eset)[,"rin"])
 
 ### visualizacion de resultados
+
+# se visualizaran los resultados de leukemiaEset del capitulo 2
+# la funcion toTable() de limma regresará los
+# genes con mayor expresion diferencial
+# el valor p ajustado se realiza en base con Benjamini-hochberg
+# false discovery rate FDR
+
+topTable(fit2, number = 3)
+
+# previo a la visualizacion se realiza un resumen estadistico
+# para cada gen
+stats <- topTable(fit2, number = nrow(fit2), sort.by = "none")
