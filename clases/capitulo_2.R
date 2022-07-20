@@ -84,6 +84,7 @@ fit2 <- eBayes(fit2)
 results <- decideTests(fit2)
 summary(results)
 
+vennDiagram(results)
 ## factorial experiment design
 
 # a balanced factorial design includes samples that experience each
