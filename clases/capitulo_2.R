@@ -70,6 +70,7 @@ cm <- makeContrasts(AMLvALL = LeukemiaTypeAML - LeukemiaTypeALL,
                     CLLvALL = LeukemiaTypeCLL - LeukemiaTypeALL,
                     NOLvALL = LeukemiaTypeNoL - LeukemiaTypeALL,
                     levels = design)
+
 cm
 
 # con design y contrast se puede correr the lima pipeline
