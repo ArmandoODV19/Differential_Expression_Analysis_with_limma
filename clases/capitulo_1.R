@@ -9,7 +9,7 @@ isS4(leukemia)
 # 1. matriz de expresion (x)
 # 2. data de características. la cual describe la medida de
 # cada característica, por lo general genes o proteínas (f)
-# 3. data del fenotipo. describe cada muestra en ele studio (p)
+# 3. data del fenotipo. describe cada muestra en el estudio (p)
 
 # las filas de la matriz de expresion son cada una de las caracteristicas
 # y cada columna es una de la muestras
@@ -18,7 +18,7 @@ class(x)
 dim(x)
 
 # en la matriz de caracteristicas cada fila es una caracteristica
-# el numero de filas es igual al numero de filas en la matriz de
+# su numero de filas es igual al numero de filas en la matriz de
 # de expresion. Las columnas corresponden al simbolo del gen
 # el numero de identificacion en la base de datos y la localizacion en
 # el cromosoma (el nombre de las columnas puede variar)
