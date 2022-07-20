@@ -121,3 +121,21 @@ entrez <- fit2$genes[,"entrez"]
 
 enrich_kegg <- kegga(fit2, geneid = entrez, species = "Hs")
 # la abreviacion de la especie "Hs" indica hommo sapiens
+
+# para ver el top de vias enriquecidas se utiliza topKEGG
+
+topKEGG(enrich_kegg, number = 3)
+# se genera el nombre de la via
+# numero de genes por via
+# up and down regulated
+# y valores p  de enriquecimiento
+
+# para el analisis de enriquecimiento con Go
+# se utiliza la funcion goana
+# se requieren las siguientes paqueterias
+BiocManager::install("GO.db")
+BiocManager::install("org.Hs.eg.db")
+library(GO.db)
+library(org.Hs.eg.db)
+
+enrich_go <- goana(fit2, geneid = entrez, species = "Hs")
