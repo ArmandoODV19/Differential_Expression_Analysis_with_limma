@@ -106,4 +106,8 @@ volcanoplot(fit2,
 results <- decideTests(fit2)
 summary(results)
 
+# este aspecto responde si los genes diferencialmente expresados en
+# el experimento estan sobrerepresentados mas de lo esperado
+# por casualidad que cualquier conjunto conocido de genes
+
 
