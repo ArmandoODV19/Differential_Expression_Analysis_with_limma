@@ -100,3 +100,10 @@ volcanoplot(fit2,
             highlight = 5, # subrayar top 5 significant genes
             names = fit2$genes[,"symbol"])
 
+
+# enrichment analisys
+
+results <- decideTests(fit2)
+summary(results)
+
+
