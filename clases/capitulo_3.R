@@ -139,3 +139,8 @@ library(GO.db)
 library(org.Hs.eg.db)
 
 enrich_go <- goana(fit2, geneid = entrez, species = "Hs")
+
+# los resultados principales se observan con topGO()
+
+topGO(enrich_go, ontology = "BP", number = 3)
+# BP indica biological process
