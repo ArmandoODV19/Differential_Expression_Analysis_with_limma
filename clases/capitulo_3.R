@@ -75,7 +75,8 @@ exprs(eset) <- removeBatchEffect(eset,
 
 ### visualizacion de resultados
 
-# se visualizaran los resultados de leukemiaEset del capitulo 2
+# se visualizaran los resultados de leukemia (no leukemiaEset)
+# del capitulo 2
 # la funcion toTable() de limma regresará los
 # genes con mayor expresion diferencial
 # el valor p ajustado se realiza en base con Benjamini-hochberg
@@ -86,3 +87,16 @@ topTable(fit2, number = 3)
 # previo a la visualizacion se realiza un resumen estadistico
 # para cada gen
 stats <- topTable(fit2, number = nrow(fit2), sort.by = "none")
+dim(stats)
+
+# visualizacion con histograma de valores p
+
+hist(stats[,"P.Value"])
+
+# volcano plot
+# se realiza con la funcion de limma volcanoplot()
+
+volcanoplot(fit2,
+            highlight = 5, # subrayar top 5 significant genes
+            names = fit2$genes[,"symbol"])
+
